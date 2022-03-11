@@ -60,13 +60,58 @@ public final class Monster extends Entity {
 
     @Override
     public Direction chooseMove(World local) {
-        return null;
+        int a=0;
+        for (int i = 1; i > -2 ; i --) {
+            for (int j = 1; j > -2 ; j --) {
+                Entity a = local.getEntity(i, j);
+                if (a.isAlive()) {
+                    if (a instanceof Hero) {
+                        for (Direction k:Direction.getDirections(i,j)){
+                            Entity c= local.getEntity(i,j,k);
+                            if (c.canMoveOnTopOf()){
+                                return k;
+                            }
+                        }
+                    }else{
+                        a=2;
+                    }
+
+                }
+            }
+
+        }
+        if (a==2){
+            return Direction.NORTHWEST;
+        }
+        else if (a==){
+            a=4;
+        }
+        if (a==4){
+            m=false;
+            return Direction.getRandomDirection();
+        }
+        boolean o=true;
+        if (m){
+            return  Direction.STAY;
+        }
     }
 
     @Override
     public Direction attackWhere(World local) {
-        return null;
+        for (int i = 1; i > -2 ; i --) {
+            for (int j = 1; j > -2 ; j --) {
+                Entity a = local.getEntity(i, j);
+                if (a.isAlive()) {
+                    if (a instanceof Hero) {
+                        return Direction.getDirection(i, j);
+                    }
+                } else {
+                    return null;
+                }
+            }
+        }return null;
     }
+
 
     /**
      * Can only be moved on top of if dad

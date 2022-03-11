@@ -52,34 +52,67 @@ public final class Hero extends Entity{
 
     @Override
     public Direction chooseMove(World local) {
-        return null;
+        int a=0;
+
+
+        for  (int i=-2;i<3;i+=1){
+            for ( int j=-2;j<3;j+=1){
+                Entity b=local.getEntity(i,j);
+                if (b instanceof Monster){
+                    if (b.isAlive()){
+                        for (Direction k:Direction.getDirections(i,j)){
+                            Entity c= local.getEntity(i,j,k);
+                            if (c.canMoveOnTopOf()){
+                                return k;
+                            }
+                        }
+                    }else{
+                        a=2;
+                    }
+
+                }
+            }
+
+        }
+        if (a==2){
+            return Direction.NORTHWEST;
+        }
+        else if (a==){
+            a=4;
+        }
+        if (a==4){
+            m=false;
+            return Direction.getRandomDirection();
+        }
+        boolean o=true;
+        if (m){
+            return  Direction.STAY;
+        }
     }
 
     @Override
     public Direction attackWhere(World local) {
-        int i=-1;
-        int j=-1;
-        for (i<2 && i>-2; i+=1){
-            for (j<2 && j>-2; j+=1){
-                Entity a=local.getEntity(i,j);
-                if (a.isAlive()){
-                    if (a instanceof Monster){
-                        return Direction.getDirection(i,j);
+
+
+        for (int i = -1; i < 2 && i > -2; i += 1) {
+            for (int j = -1; j < 2 && j > -2; j += 1) {
+                Entity a = local.getEntity(i, j);
+                if (a.isAlive()) {
+                    if (a instanceof Monster) {
+                        return Direction.getDirection(i, j);
                     }
-                }
-                else {
+                } else {
                     return null;
                 }
             }
-        }
-
-
+        }return null;
     }
+
 
     /**
      * Can only be moved on top of if dad
      * @return isDead()
-     */
+     */x
     @Override
     public boolean canMoveOnTopOf() {
         return isDead();

@@ -57,7 +57,23 @@ public final class Hero extends Entity{
 
     @Override
     public Direction attackWhere(World local) {
-        return null;
+        int i=-1;
+        int j=-1;
+        for (i<2 && i>-2; i+=1){
+            for (j<2 && j>-2; j+=1){
+                Entity a=local.getEntity(i,j);
+                if (a.isAlive()){
+                    if (a instanceof Monster){
+                        return Direction.getDirection(i,j);
+                    }
+                }
+                else {
+                    return null;
+                }
+            }
+        }
+
+
     }
 
     /**

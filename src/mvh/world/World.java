@@ -138,8 +138,14 @@ public class World {
         }
         checkActive();
     }
-    private World getLocal(int attackWorldSize, int row, int column){
-        return new World(3,3);
+    public World getLocal(int attackWorldSize, int row, int column){
+        World local=new World(attackWorldSize,attackWorldSize);
+        for (Entity[] i:world[row][column]){
+            local[row][column]=(getEntity(row,column));
+            Wall.getWall();
+        }
+
+
     }
     public String gameString(){
         String n="#####\n";

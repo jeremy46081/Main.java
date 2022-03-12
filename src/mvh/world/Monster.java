@@ -60,41 +60,41 @@ public final class Monster extends Entity {
 
     @Override
     public Direction chooseMove(World local) {
-        int a=0;
-        for (int i = 1; i > -2 ; i --) {
-            for (int j = 1; j > -2 ; j --) {
+        int e = 0;
+        for (int i = 1; i > -2; i--) {
+            for (int j = 1; j > -2; j--) {
                 Entity a = local.getEntity(i, j);
                 if (a.isAlive()) {
                     if (a instanceof Hero) {
-                        for (Direction k:Direction.getDirections(i,j)){
-                            Entity c= local.getEntity(i,j,k);
-                            if (c.canMoveOnTopOf()){
+                        for (Direction k : Direction.getDirections(i, j)) {
+                            Entity c = local.getEntity(i, j, k);
+                            if (c.canMoveOnTopOf()) {
                                 return k;
                             }
                         }
-                    }else{
-                        a=2;
+                    } else {
+                        e = 2;
                     }
 
                 }
             }
 
         }
-        if (a==2){
+        if (e == 2) {
             return Direction.NORTHWEST;
+        } else if (e ==3) {
+            e = 4;
         }
-        else if (a==){
-            a=4;
-        }
-        if (a==4){
-            m=false;
+        boolean m = false;
+        if (e == 4) {
+            m = false;
             return Direction.getRandomDirection();
         }
-        boolean o=true;
-        if (m){
-            return  Direction.STAY;
+        boolean o = true;
+        if (m == true) {
+            return Direction.STAY;
         }
-    }
+    return null;}
 
     @Override
     public Direction attackWhere(World local) {

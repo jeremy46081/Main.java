@@ -139,64 +139,52 @@ public class World {
         checkActive();
     }
     public World getLocal(int attackWorldSize, int row, int column){
-        World local=new World(attackWorldSize,attackWorldSize);
-        for (Entity[] i:world[row][column]){
-            local[row][column]=(getEntity(row,column));
-            Wall.getWall();
-        }
+       return new World(3,3);
 
 
     }
     public String gameString(){
         String n="#####\n";
-        n+= worldString();
-        String s=n;
-        s+=("\nNAME\t"+"S\t"+"H\t"+"STATE\t"+"INFO\n");
-        for (Entity i:entities){
+
+        String s ="\nNAME\t"+"S\t"+"H\t"+"STATE\t"+"INFO\n";
+        for (Entity i:this.entities){
             s+=i;
         }
-
-        return s;
+        String a=worldString()+s;
+        return a;
 
 
 
     }
     public String worldString(){
-        String n=new String();
-        String a= Arrays.deepToString(world);
+        StringBuilder n= new StringBuilder(new String());
+        
         double c=0;
-        for (Entity[] i:world){
-            n+="#";
+        for (Entity[] i:this.world){
+            n.append("#");
 
             for (Entity j:i){
                 if (j==null){
-                    n+=".";
+                    n.append(".");
                     c++;
-
                 }
                 else if (j.isAlive()){
-                    n+=j;
-
+                    n.append(j);
                 }
-
                 else if (j.isDead()){
-                    n+="$";
-
+                    n.append("$");
                 }
-
-
-
                 else{
-                    n+="#";
+                    n.append(i);
                 }}
-            n+="#\n";
+            n.append("#\n");
             }
         int b=-2;
         while (b<Math.pow(c,0.5)) {
-            n+="#";
+            n.append("#");
             b+=1;
         }
-        return n;
+        return n.toString();
         }
 
 

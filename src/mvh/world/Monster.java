@@ -59,6 +59,11 @@ public final class Monster extends Entity {
     }
 
     @Override
+    /**
+     * this choosemove function gets a 5x5 grid which shows what is surrounding the
+     * monster. The function then checks if there is an alive hero in this grid
+     * which the monster uses to attack or move in the direction of the hero.
+     */
     public Direction chooseMove(World local) {
         int e = 0;
         for (int i = 1; i > -2; i--) {
@@ -73,7 +78,7 @@ public final class Monster extends Entity {
                             }
                         }
                     } else {
-                        e = 2;
+                        return Direction.SOUTHEAST;
                     }
 
                 }
@@ -81,7 +86,7 @@ public final class Monster extends Entity {
 
         }
         if (e == 2) {
-            return Direction.NORTHWEST;
+
         } else if (e ==3) {
             e = 4;
         }
@@ -97,6 +102,12 @@ public final class Monster extends Entity {
     return null;}
 
     @Override
+    /**
+     * In this function the monster gets a 3x3 view of the world of what is
+     * around them and using this they can choose where they want to attack.
+     * It loops through the local view and checks whether there is an alive hero
+     * in this grid
+     */
     public Direction attackWhere(World local) {
         for (int i = 1; i > -2 ; i --) {
             for (int j = 1; j > -2 ; j --) {

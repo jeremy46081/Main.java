@@ -51,6 +51,10 @@ public final class Hero extends Entity{
     }
 
     @Override
+    /**
+     * choosemove gives the user a 5x5 subview of the world in which they are given the
+     * option to either attack or move using this function
+     */
     public Direction chooseMove(World local) {
         int a = 0;
         for (int i = -2; i < 3; i += 1) {
@@ -81,6 +85,10 @@ public final class Hero extends Entity{
     return null;}
 
     @Override
+    /**
+     * attackwhere gets a 3x3 subview of the world and shows where to attack
+     * by checking the local view if there is an alive monster which can be attacked
+     */
     public Direction attackWhere(World local) {
 
 

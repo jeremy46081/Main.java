@@ -7,6 +7,11 @@ import mvh.enums.Direction;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+/**
+ * T07
+ * Jeremy Thomas
+ * 11/03/2022
+ */
 
 /**
  * A World is a 2D grid of entities, null Spots are floor spots
@@ -139,10 +144,16 @@ public class World {
         checkActive();
     }
     public World getLocal(int attackWorldSize, int row, int column){
-       return new World(3,3);
+       return new World(attackWorldSize,attackWorldSize);
 
 
     }
+
+    /**
+     * gamestring changes the world that is made into String which can be displayed
+     *
+     * @return
+     */
     public String gameString(){
 
         String s ="\nNAME"+"\tS"+"\tH"+"\tSTATE"+"\tINFO\n";
@@ -156,6 +167,12 @@ public class World {
 
 
     }
+
+    /**
+     * worldstring builds a map of the world using Entity[][] with walls(#),floors(#)
+     * and ALIVE or DEAD entities
+     * @return
+     */
     public String worldString(){
         String n= new String();
         double c=0;

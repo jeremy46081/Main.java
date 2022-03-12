@@ -53,8 +53,6 @@ public final class Hero extends Entity{
     @Override
     public Direction chooseMove(World local) {
         int a = 0;
-
-
         for (int i = -2; i < 3; i += 1) {
             for (int j = -2; j < 3; j += 1) {
                 Entity b = local.getEntity(i, j);
@@ -67,27 +65,18 @@ public final class Hero extends Entity{
                             }
                         }
                     } else {
-                        a = 2;
+                        return Direction.NORTHWEST;
+
+
                     }
 
                 }
             }
 
         }
-        if (a == 2) {
-            return Direction.NORTHWEST;
-        } else if (a ==3) {
-            a = 4;
-        }
-        boolean m = false;
-        if (a == 4) {
-            m = false;
-            return Direction.getRandomDirection();
-        }
-        boolean o = true;
-        if (m == true) {
-            return Direction.STAY;
-        }
+
+
+
 
     return null;}
 

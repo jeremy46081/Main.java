@@ -106,7 +106,8 @@ public final class Monster extends Entity {
                         return Direction.getDirection(i, j);
                     }
                 } else {
-                    return null;
+                        return Direction.NORTHWEST;
+
                 }
             }
         }return null;

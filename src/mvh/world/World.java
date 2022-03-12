@@ -144,11 +144,11 @@ public class World {
 
     }
     public String gameString(){
-        String n="#####\n";
 
-        String s ="\nNAME\t"+"S\t"+"H\t"+"STATE\t"+"INFO\n";
+        String s ="\nNAME"+"\tS"+"\tH"+"\tSTATE"+"\tINFO\n";
         for (Entity i:this.entities){
             s+=i;
+            s+="\n";
         }
         String a=worldString()+s;
         return a;
@@ -157,34 +157,35 @@ public class World {
 
     }
     public String worldString(){
-        StringBuilder n= new StringBuilder(new String());
-        
+        String n= new String();
         double c=0;
-        for (Entity[] i:this.world){
-            n.append("#");
+        for (Entity[] i:this.world) {
+            n += "#";
 
-            for (Entity j:i){
-                if (j==null){
-                    n.append(".");
-                    c++;
-                }
-                else if (j.isAlive()){
-                    n.append(j);
-                }
-                else if (j.isDead()){
-                    n.append("$");
-                }
-                else{
-                    n.append(i);
+            for (Entity j : i) {
+
+                if (j == null) {
+                    n += (".");
+                    c += 1;
+                } else if (j.isAlive()) {
+                    n += (j.getSymbol());
+                    c += 1;
+                } else if (j.isDead()) {
+                    n += ("$");
+
+                } else {
+                    n += (i);
+
                 }}
-            n.append("#\n");
+            n += "#\n";
             }
-        int b=-2;
-        while (b<Math.pow(c,0.5)) {
-            n.append("#");
-            b+=1;
+
+        int f=-2;
+        while (f<Math.pow(c,0.5)) {
+            n+="#";
+            f+=1;
         }
-        return n.toString();
+        return n;
         }
 
 

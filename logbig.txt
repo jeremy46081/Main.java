@@ -1,0 +1,15 @@
+Arguments: [worldbig.txt, logbig.txt, 34256]
+#A.B.#
+#..C.#
+#....#
+#....#
+#.DEF#
+#######
+NAME	S	H	STATE	INFO
+Mons(1)	A	10	ALIVE	AXE
+Mons(2)	B	9	ALIVE	SWORD
+Mons(3)	C	8	ALIVE	CLUB
+Hero(4)	D	8	ALIVE	5	2
+Hero(5)	E	7	ALIVE	4	1
+Hero(6)	F	6	ALIVE	3	1
+

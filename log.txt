@@ -1,0 +1,15 @@
+Arguments: [worldbig.txt, log.txt, 12345]
+#A...#
+#....#
+#....#
+#....#
+#.D..#
+#######
+NAME	S	H	STATE	INFO
+Mons(1)	A	10	ALIVE	AXE
+Mons(2)	A	10	ALIVE	AXE
+Mons(3)	A	10	ALIVE	AXE
+Hero(4)	D	8	ALIVE	5	2
+Hero(5)	D	8	ALIVE	5	2
+Hero(6)	D	8	ALIVE	5	2
+
